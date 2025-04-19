@@ -1,0 +1,183 @@
+/* Reset & base */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #eef2f3, #ffffff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Container layout */
+  .addEditTasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1000px;
+    width: 100%;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    gap: 2rem;
+  }
+  
+  /* Panels */
+  .left-panel,
+  .right-panel {
+    flex: 1;
+  }
+  
+  .left-panel {
+    border-right: 1px solid #e0e0e0;
+    padding-right: 2rem;
+  }
+  
+  .right-panel {
+    padding-left: 2rem;
+  }
+  
+  /* Headings */
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+  
+  /* Form styles */
+  input[type="text"],
+  input[type="date"] {
+    color: #333;
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdfe3;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9fafb;
+    transition: border 0.2s ease;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0); /* 0 = black, 1 = white */
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  input:focus {
+    
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+  }
+  
+  /* Buttons */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  button:hover {
+    background-color: #5a52e5;
+  }
+  
+  /* Task list styles */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    background: #f7f8fc;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  li:hover {
+    transform: translateY(-2px);
+    background: #eef0f5;
+  }
+  
+  li span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  li small {
+    display: block;
+    font-size: 13px;
+    color: #7a7a7a;
+    margin-top: 5px;
+  }
+  
+  li button {
+    margin-left: 8px;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  li button:first-of-type {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+  }
+  
+  li button:first-of-type:hover {
+    background-color: #43a047;
+  }
+  
+  li button:last-of-type {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  li button:last-of-type:hover {
+    background-color: #e53935;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .App {
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+  
+    .left-panel {
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      padding-right: 0;
+      padding-bottom: 1.5rem;
+    }
+  
+    .right-panel {
+      padding-left: 0;
+      padding-top: 1.5rem;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
