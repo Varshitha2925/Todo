@@ -60,6 +60,7 @@ function App() {
 
   return (
     <div className="addEditTasks">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
       <div className="left-panel">
         <h1>Create Task</h1>
         <input

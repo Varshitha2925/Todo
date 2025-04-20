@@ -2,21 +2,12 @@
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #eef2f3, #ffffff);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
   }
-  
-  /* Container layout */
+
   .addEditTasks {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1000px;
-    width: 100%;
-    margin: 4rem auto;
+    flex-direction: row; /* <- change this from row */
+  
     padding: 2rem;
     background: #ffffff;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
@@ -31,12 +22,12 @@ body {
   }
   
   .left-panel {
-    border-right: 1px solid #e0e0e0;
-    padding-right: 2rem;
+    border: none; /* remove vertical divider */
+    padding: 0;
   }
   
   .right-panel {
-    padding-left: 2rem;
+    padding: 0;
   }
   
   /* Headings */
