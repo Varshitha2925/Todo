@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import axios from "axios";
 import "./addEditTasks.css";
+import axios from "axios";
 
 interface Task {
   _id: string;
@@ -16,46 +17,36 @@ function App() {
 
   useEffect(() => {
 
-    // axios.get<Task[]>("http://localhost:5000/tasks").then((res) => setTasks(res.data));
+    axios.get<Task[]>("http://localhost:5000/").then((res) => setTasks(res.data));
   }, []);
 
   const addTask = () => {
-    setTasks((tasks) => [
-      ...tasks,
-      { _id: Date.now().toString(), text: newTask, completed: false, dueDate: dueDate || undefined },
-    ]);
-    // if (!newTask.trim()) return;
+    if (!newTask.trim()) return;
 
-    // axios
-    //   .post<Task>("http://localhost:5000/tasks", {
-    //     text: newTask,
-    //     dueDate: dueDate || undefined,
-    //   })
-    //   .then((res) => {
-    //     setTasks((prev) => [...prev, res.data]);
-    //     setNewTask("");
-    //     setDueDate("");
-    //   });
+    axios
+      .post<Task>("http://localhost:5000/tasks", {
+        text: newTask,
+        dueDate: dueDate || undefined,
+      })
+      .then((res) => {
+        setTasks((prev) => [...prev, res.data]);
+        setNewTask("");
+        setDueDate("");
+      });
   };
 
   const toggleTask = (id: string) => {
-    // axios.put<Task>(`http://localhost:5000/tasks/${id}`).then((res) => {
-    //   setTasks((prev) => prev.map((task) => (task._id === id ? res.data : task)));
-    // });
-    setTasks((prev) =>
-      prev.map((task) => (task._id === id ? { ...task, completed: !task.completed } : task))
-    );
-    setNewTask("");
-    setDueDate("");
+    axios.put<Task>(`http://localhost:5000/tasks/${id}`).then((res) => {
+      setTasks((prev) => prev.map((task) => (task._id === id ? res.data : task)));
+    });
+    
   };
 
   const deleteTask = (id: string) => {
-    // axios.delete(`http://localhost:5000/tasks/${id}`).then(() => {
-    //   setTasks((prev) => prev.filter((task) => task._id !== id));
-    // });
-    setTasks((prev) => prev.filter((task) => task._id !== id));
-    setNewTask("");
-    setDueDate("");
+    axios.delete(`http://localhost:5000/tasks/${id}`).then(() => {
+      setTasks((prev) => prev.filter((task) => task._id !== id));
+    });
+    
   };
 
   return (
